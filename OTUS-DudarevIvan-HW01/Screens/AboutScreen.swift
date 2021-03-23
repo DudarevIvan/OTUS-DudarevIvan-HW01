@@ -23,7 +23,7 @@ struct AboutScreen: View {
                 Text("More about NASA")
                     .font(Font.system(size: 30).weight(.regular))
                     .padding(5)
-                    .background(Color.blue.opacity(0.8))
+                    .background(Color.gray.opacity(0.8))
                     .foregroundColor(.white)
                     .cornerRadius(4.0)
             })

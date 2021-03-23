@@ -14,7 +14,6 @@ struct OTUS_DudarevIvan_HW01App: App {
             MainView()
                 .environmentObject(Router())
                 .environmentObject(ListViewModel())
-                //.environmentObject(PhotoViewModel())
         }
     }
 }

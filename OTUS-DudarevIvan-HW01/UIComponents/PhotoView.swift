@@ -10,8 +10,6 @@ import SwiftUI
 struct PhotoView: View {
     
     @ObservedObject var photoViewModel: PhotoViewModel
-
-    //let photoURL: String
     
     init(photoURL: String) {
         self.photoViewModel = PhotoViewModel()
@@ -28,9 +26,5 @@ struct PhotoView: View {
                 Image(systemName: "photo")
             }
         }
-//        }.onAppear() {
-//            self.photoViewModel.fetchPhoto(for: photoURL)
-//        }
-        
     }
 }
