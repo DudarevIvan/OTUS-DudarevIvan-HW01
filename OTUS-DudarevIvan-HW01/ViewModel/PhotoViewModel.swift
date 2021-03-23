@@ -10,13 +10,7 @@ import Networking
 
 class PhotoViewModel: ObservableObject {
     
-    @Published var photo: Image = Image(systemName: "photo")
-    
-    var p: Image = Image(systemName: "photo") {
-        didSet {
-            self.photo = p
-        }
-    }
+    @Published var photo: Image?
     
     func fetchPhoto(for url: String) {
         Networking.shared.loadImage(url) { (result: Result<Data, NetworkError>) in
@@ -24,9 +18,9 @@ class PhotoViewModel: ObservableObject {
             case .success(let data):
                 DispatchQueue.main.async {
                     if let uiImage = UIImage(data: data) {
-                        self.p = Image(uiImage: uiImage)
+                        self.photo = Image(uiImage: uiImage)
                     } else {
-                        self.p = Image(systemName: "exclamationmark.icloud")
+                        self.photo = Image(systemName: "exclamationmark.icloud")
                     }
                 }
             case.failure(let error):

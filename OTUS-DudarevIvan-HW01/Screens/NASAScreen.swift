@@ -24,7 +24,7 @@ struct NASAScreen: View {
                                 PhotoCell(photo: photo)
                             })
                     }
-                    .overlay(NavigationLink(destination: PhotoView(photoURL: (listViewModel.list?.photos.randomElement()!.imgSrc)!), isActive: $router.randomPhotoIsActive) {
+                    .overlay(NavigationLink(destination: PhotoView(photoURL: (listViewModel.list?.photos[6].imgSrc)!), isActive: $router.randomPhotoIsActive) {
                         EmptyView().hidden()
                     })
                 } else {

@@ -14,6 +14,7 @@ struct OTUS_DudarevIvan_HW01App: App {
             MainView()
                 .environmentObject(Router())
                 .environmentObject(ListViewModel())
-        }//.onChange(of: <#T##Equatable#>, perform: <#T##(Equatable) -> Void#>)
+                //.environmentObject(PhotoViewModel())
+        }
     }
 }
