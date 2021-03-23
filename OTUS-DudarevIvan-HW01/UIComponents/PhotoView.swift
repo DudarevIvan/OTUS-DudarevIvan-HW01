@@ -9,22 +9,24 @@ import SwiftUI
 
 struct PhotoView: View {
     
-    @ObservedObject var photoViewModel: PhotoViewModel
+    private let url: String
     
-    init(photoURL: String) {
-        self.photoViewModel = PhotoViewModel()
-        self.photoViewModel.fetchPhoto(for: photoURL)
+    init(for url: String) {
+        self.url = url
     }
     
     var body: some View {
-        Group {
-            if photoViewModel.photo != nil {
-                photoViewModel.photo!
-                    .resizable()
-                    .scaledToFit()
-            } else {
-                Image(systemName: "photo")
-            }
-        }
+        NASAPhoto(photoViewModel: PhotoViewModel(for: url))
+    }
+}
+
+struct NASAPhoto: View {
+    
+    @StateObject var photoViewModel: PhotoViewModel
+    
+    var body: some View {
+        photoViewModel.photo
+            .resizable()
+            .scaledToFit()
     }
 }

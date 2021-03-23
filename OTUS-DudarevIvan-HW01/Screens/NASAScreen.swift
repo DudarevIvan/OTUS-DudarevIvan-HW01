@@ -16,15 +16,15 @@ struct NASAScreen: View {
     var body: some View {
         NavigationView {
             Group {
-                if listViewModel.list != nil {
-                    List(listViewModel.list!.photos) { photo in
+                if let list = listViewModel.list {
+                    List(list.photos) { photo in
                         NavigationLink(
-                            destination: PhotoView(photoURL: photo.imgSrc),
+                            destination: PhotoView(for: photo.imgSrc),
                             label: {
                                 PhotoCell(photo: photo)
                             })
                     }
-                    .overlay(NavigationLink(destination: PhotoView(photoURL: (listViewModel.list?.photos[6].imgSrc)!), isActive: $router.randomPhotoIsActive) {
+                    .overlay(NavigationLink(destination: PhotoView(for: (list.photos.first!.imgSrc)), isActive: $router.randomPhotoIsActive) {
                         EmptyView().hidden()
                     })
                 } else {

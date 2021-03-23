@@ -10,7 +10,11 @@ import Networking
 
 class PhotoViewModel: ObservableObject {
     
-    @Published var photo: Image?
+    @Published var photo: Image = Image(systemName: "photo")
+    
+    init(for url: String) {
+        fetchPhoto(for: url)
+    }
     
     func fetchPhoto(for url: String) {
         Networking.shared.loadImage(url) { (result: Result<Data, NetworkError>) in

@@ -10,8 +10,6 @@ import Foundation
 final class Router: ObservableObject {
     
     @Published var tabSelection: Int = 0
-    @Published var randomPhotoIsActive: Bool = false
-    //@Published var isSuperFoodShowed: Bool = false
-    
+    @Published var randomPhotoIsActive: Bool = false    
     
 }
