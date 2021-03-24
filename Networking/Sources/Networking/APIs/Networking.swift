@@ -18,6 +18,7 @@ public class Networking {
     
     public static let shared: Networking = .init()
         
+    // Generic func
     public func loadData<T: Decodable>(_ url: String = "https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&api_key=Bhd7FR7uVtBBeI3cnKTINobUEj0jsySE2asXaPtH", completion: @escaping (Result<T, NetworkError>) -> ()) {
         guard let url = URL(string: url) else {
             return completion(Result.failure(.URLError))
@@ -35,7 +36,8 @@ public class Networking {
         }.resume()
     }
     
-    public func loadImage(_ url: String, completion: @escaping (Result<Data, NetworkError>) -> ()) {
+    // Only Image(Data)
+    public func loadData(_ url: String, completion: @escaping (Result<Data, NetworkError>) -> ()) {
         guard let url = URL(string: url) else {
             return completion(Result.failure(.URLError))
         }

@@ -20,6 +20,7 @@ struct PhotoView: View {
     }
 }
 
+
 struct NASAPhoto: View {
     
     @StateObject var photoViewModel: PhotoViewModel
