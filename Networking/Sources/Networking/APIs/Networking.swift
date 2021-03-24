@@ -37,7 +37,7 @@ public class Networking {
     }
     
     // Only Image(Data)
-    public func loadData(_ url: String, completion: @escaping (Result<Data, NetworkError>) -> ()) {
+    public func loadImage(_ url: String, completion: @escaping (Result<Data, NetworkError>) -> ()) {
         guard let url = URL(string: url) else {
             return completion(Result.failure(.URLError))
         }

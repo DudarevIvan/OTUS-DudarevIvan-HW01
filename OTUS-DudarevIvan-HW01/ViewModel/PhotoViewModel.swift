@@ -17,7 +17,7 @@ class PhotoViewModel: ObservableObject {
     }
     
     func fetchPhoto(for url: String) {
-        Networking.shared.loadData(url) { (result: Result<Data, NetworkError>) in
+        Networking.shared.loadImage(url) { (result: Result<Data, NetworkError>) in
             switch result {
             case .success(let data):
                 DispatchQueue.main.async {
